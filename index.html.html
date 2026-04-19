@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposition Imene B.</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f5f0;color:#1a1a1a;padding:16px;max-width:600px;margin:0 auto}
+.card{background:#fff;border:1px solid #e5e5e0;border-radius:16px;padding:20px;margin-bottom:14px}
+.header{background:#E1F5EE;border-radius:16px;padding:20px;margin-bottom:14px;border:1px solid #9FE1CB}
+.header-title{font-size:22px;font-weight:600;color:#085041;margin-bottom:4px}
+.header-sub{font-size:13px;color:#0F6E56}
+.section-title{font-size:16px;font-weight:600;color:#1a1a1a;margin-bottom:4px}
+.section-sub{font-size:12px;color:#888;margin-bottom:14px}
+.actor{display:flex;gap:12px;align-items:flex-start;padding:12px;background:#f9f9f7;border-radius:12px;margin-bottom:8px}
+.avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:600;font-size:13px;flex-shrink:0}
+.aname{font-size:14px;font-weight:600;color:#1a1a1a;margin-bottom:3px}
+.adesc{font-size:13px;color:#555;line-height:1.6}
+.pill{display:inline-block;font-size:12px;padding:4px 12px;border-radius:20px;margin:3px 3px 3px 0}
+.green-pill{background:#E1F5EE;color:#085041}
+.red-pill{background:#FCEBEB;color:#791F1F}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #f0f0ec;font-size:14px}
+.row:last-child{border-bottom:none}
+.rl{color:#888}
+.rv{font-weight:600;color:#1a1a1a}
+.formula-step{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid #f0f0ec}
+.formula-step:last-child{border-bottom:none}
+.step-num{width:28px;height:28px;border-radius:50%;background:#f0f0ec;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:#666;flex-shrink:0;margin-top:1px}
+.step-text{font-size:14px;color:#1a1a1a;line-height:1.5;font-weight:500}
+.step-sub{font-size:12px;color:#888;margin-top:3px}
+.dist-bar{display:flex;height:40px;border-radius:10px;overflow:hidden;margin:14px 0 8px}
+.seg{display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;overflow:hidden;white-space:nowrap;padding:0 6px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0}
+.stat{background:#f9f9f7;border-radius:12px;padding:14px 10px;text-align:center}
+.stat-label{font-size:11px;color:#888;margin-bottom:6px}
+.stat-val{font-size:20px;font-weight:700;color:#1a1a1a}
+.stat-pct{font-size:11px;color:#aaa;margin-top:3px}
+.slider-wrap{background:#f9f9f7;border-radius:12px;padding:14px;margin-bottom:12px}
+.slider-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.slider-label{font-size:14px;color:#555}
+.slider-num{font-size:22px;font-weight:700;color:#1D9E75}
+input[type=range]{width:100%;height:6px;-webkit-appearance:none;appearance:none;background:#e0e0e0;border-radius:3px;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:24px;height:24px;border-radius:50%;background:#1D9E75;cursor:pointer}
+.breakdown{background:#f9f9f7;border-radius:12px;padding:14px;margin-bottom:10px}
+.warn{background:#FFF8E1;border:1px solid #FFD54F;border-radius:12px;padding:12px 14px;font-size:13px;color:#795548;margin-top:10px;line-height:1.5}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:#888;margin-top:10px}
+.legend span{display:flex;align-items:center;gap:5px}
+.legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0}
+.highlight-stat{border:2px solid #1D9E75}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-title">Proposition de partenariat</div>
+  <div class="header-sub">Imene B. · Coordinatrice · Confidentiel · Valide jusqu'au 31 déc. 2026</div>
+</div>
+
+<div class="card">
+  <div class="section-title">Le business</div>
+  <div class="section-sub">Ce qu'on fait ensemble</div>
+  <p style="font-size:14px;color:#333;line-height:1.7;margin-bottom:10px">Nous sommes une agence de tourisme médical spécialisée dans le <strong>Hollywood Smile à Istanbul</strong>. Nous connectons des patients anglophones avec une clinique certifiée — et nous gérons tout leur parcours de A à Z.</p>
+  <p style="font-size:14px;color:#333;line-height:1.7">La machine fonctionne avec <strong>3 acteurs distincts</strong>, chacun avec un rôle précis et une rémunération juste.</p>
+</div>
+
+<div class="card">
+  <div class="section-title">Les 3 acteurs</div>
+  <div class="section-sub">Chacun a sa place, son rôle, sa part</div>
+
+  <div class="actor">
+    <div class="avatar" style="background:#E1F5EE;color:#085041">ENL</div>
+    <div>
+      <div class="aname">E-NOVATION LLC — La machine</div>
+      <div class="adesc">E-NOVATION LLC est l'entreprise qui encaisse, paye les frais, et se finance pour grandir. Elle prend <strong>50% du profit net</strong> pour absorber les risques et réinvestir dans la croissance. Ce n'est pas une personne — c'est le moteur.</div>
+    </div>
+  </div>
+
+  <div class="actor">
+    <div class="avatar" style="background:#EEEDFE;color:#3C3489">P</div>
+    <div>
+      <div class="aname">Le Pilote — Gestion & acquisition</div>
+      <div class="adesc">Il construit et gère la machine : publicité, système, supervision, encaissement. Il prend <strong>25% du profit net</strong>.</div>
+    </div>
+  </div>
+
+  <div class="actor">
+    <div class="avatar" style="background:#9FE1CB;color:#04342C">IB</div>
+    <div>
+      <div class="aname">Imene B. — Coordinatrice</div>
+      <div class="adesc">Tu es le visage humain du business. Closing patients, coordination clinique, accompagnement à Istanbul, collecte témoignages. Tu prends <strong>25% du profit net</strong> — à égalité avec le pilote. Sans toi, pas de patients traités.</div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-title">Ce que tu fais — ce que tu ne fais pas</div>
+  <div class="section-sub">Ton périmètre est clair et précis</div>
+  <p style="font-size:12px;font-weight:600;color:#888;margin-bottom:8px">TES RESPONSABILITÉS</p>
+  <span class="pill green-pill">Closing patients WhatsApp</span>
+  <span class="pill green-pill">Questions des leads qualifiés</span>
+  <span class="pill green-pill">Coordination avec la clinique</span>
+  <span class="pill green-pill">Accueil patient</span>
+  <span class="pill green-pill">Accompagnement durant le séjour</span>
+  <span class="pill green-pill">Collecte photos, vidéos, témoignages</span>
+  <p style="font-size:12px;font-weight:600;color:#888;margin:14px 0 8px">PAS TA RESPONSABILITÉ</p>
+  <span class="pill red-pill">Trouver les leads</span>
+  <span class="pill red-pill">Payer la publicité</span>
+  <span class="pill red-pill">Gérer E-NOVATION LLC</span>
+  <span class="pill red-pill">Risque financier</span>
+  <span class="pill red-pill">Gérer les annulations ou impayés</span>
+</div>
+
+<div class="card">
+  <div class="section-title">Comment la distribution fonctionne</div>
+  <div class="section-sub">Dans cet ordre exact, chaque mois</div>
+  <div class="formula-step">
+    <div class="step-num">1</div>
+    <div><div class="step-text">E-NOVATION LLC encaisse le paiement patient</div><div class="step-sub">Ex : patient paye $2,600 pour un Hollywood Smile 10 dents</div></div>
+  </div>
+  <div class="formula-step">
+    <div class="step-num">2</div>
+    <div><div class="step-text">E-NOVATION LLC paye la clinique pour le traitement</div><div class="step-sub">Coût du traitement déduit directement</div></div>
+  </div>
+  <div class="formula-step">
+    <div class="step-num">3</div>
+    <div><div class="step-text">E-NOVATION LLC paye ses frais du mois</div><div class="step-sub">Min. $1,500 ads + $39 outils + $300 par patient au-delà du seuil</div></div>
+  </div>
+  <div class="formula-step">
+    <div class="step-num" style="background:#E1F5EE;color:#085041">4</div>
+    <div><div class="step-text" style="color:#0F6E56">Ce qui reste = Profit net distribué entre les 3</div><div class="step-sub">E-NOVATION LLC 50% · Pilote 25% · Imene 25%</div></div>
+  </div>
+  <div class="dist-bar">
+    <div class="seg" style="width:50%;background:#9FE1CB;color:#04342C">E-NOVATION LLC 50%</div>
+    <div class="seg" style="width:25%;background:#EEEDFE;color:#3C3489">Pilote 25%</div>
+    <div class="seg" style="width:25%;background:#1D9E75;color:#fff">Toi 25%</div>
+  </div>
+  <div class="legend">
+    <span><span class="legend-dot" style="background:#9FE1CB"></span>E-NOVATION LLC — réserve et croissance</span>
+    <span><span class="legend-dot" style="background:#EEEDFE"></span>Pilote — gestion</span>
+    <span><span class="legend-dot" style="background:#1D9E75"></span>Toi — coordination</span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-title">Simulateur — ce que chacun reçoit</div>
+  <div class="section-sub">Bouge le curseur pour voir la distribution réelle</div>
+  <div class="slider-wrap">
+    <div class="slider-top">
+      <span class="slider-label">Patients traités ce mois</span>
+      <span class="slider-num" id="sl-val">5</span>
+    </div>
+    <input type="range" min="1" max="25" value="5" step="1" id="sl">
+  </div>
+  <div class="breakdown">
+    <div class="row"><span class="rl">Revenus patients</span><span class="rv" id="r-brut">—</span></div>
+    <div class="row"><span class="rl">— Coût clinique</span><span class="rv" style="color:#E24B4A" id="r-clin">—</span></div>
+    <div class="row"><span class="rl">— Frais LLC</span><span class="rv" style="color:#E24B4A" id="r-frais">—</span></div>
+    <div class="row" style="border-top:2px solid #e0e0e0;margin-top:4px;padding-top:14px"><span class="rl" style="font-weight:600;color:#1a1a1a;font-size:15px">= Profit net</span><span class="rv" style="color:#0F6E56;font-size:18px" id="r-net">—</span></div>
+  </div>
+  <div class="grid3">
+    <div class="stat">
+      <div class="stat-label">E-NOVATION LLC garde</div>
+      <div class="stat-val" id="s-llc">—</div>
+      <div class="stat-pct">50% · Croissance</div>
+    </div>
+    <div class="stat">
+      <div class="stat-label">Pilote reçoit</div>
+      <div class="stat-val" style="color:#534AB7" id="s-pilot">—</div>
+      <div class="stat-pct">25% · Sa part</div>
+    </div>
+    <div class="stat highlight-stat">
+      <div class="stat-label">Tu reçois</div>
+      <div class="stat-val" style="color:#0F6E56" id="s-imene">—</div>
+      <div class="stat-pct">25% · Ta part</div>
+    </div>
+  </div>
+  <div id="warn" class="warn" style="display:none">Ce mois-ci les revenus ne couvrent pas les frais — E-NOVATION LLC absorbe la perte seule. Toi et le pilote recevez $0, vous ne devez rien. C'est E-NOVATION LLC qui prend le risque, pas toi.</div>
+</div>
+
+<div class="card">
+  <div class="section-title">Ta progression sur 12 mois</div>
+  <div class="section-sub">Simulation sur une croissance de 2 à 20 patients/mois</div>
+  <div style="position:relative;height:220px"><canvas id="chart"></canvas></div>
+  <div class="legend" style="margin-top:12px">
+    <span><span class="legend-dot" style="background:#9FE1CB"></span>E-NOVATION LLC 50%</span>
+    <span><span class="legend-dot" style="background:#AFA9EC"></span>Pilote 25%</span>
+    <span><span class="legend-dot" style="background:#1D9E75"></span>Toi 25%</span>
+  </div>
+</div>
+
+<div class="card">
+  <div class="section-title">Les garanties</div>
+  <div class="section-sub">Ce qui est fixé et ne changera jamais</div>
+  <div class="row"><span class="rl">Ta part</span><span class="rv">25% du profit net</span></div>
+  <div class="row"><span class="rl">Risque financier pour toi</span><span class="rv" style="color:#0F6E56">Zéro</span></div>
+  <div class="row"><span class="rl">Paiement</span><span class="rv">Fin de chaque mois</span></div>
+  <div class="row"><span class="rl">Rapport mensuel</span><span class="rv">Transparent et détaillé</span></div>
+  <div class="row"><span class="rl">Modification des % sans accord</span><span class="rv" style="color:#E24B4A">Impossible</span></div>
+
+</div>
+
+<div style="text-align:center;padding:20px 0;font-size:12px;color:#aaa">
+  Proposition confidentielle · Imene B. · 2026
+</div>
+
+<script>
+var PRICE=2600,CLINIQUE=1300,ADS_MIN=1500,OUTILS=39,CPL=300;
+function fraisLLC(n){return Math.max(ADS_MIN,n*CPL)+OUTILS;}
+function rawNet(n){return n*(PRICE-CLINIQUE)-fraisLLC(n);}
+function fmt(v){return v<=0?'$0':'$'+Math.round(v).toLocaleString('fr-FR');}
+
+function update(){
+  var n=parseInt(document.getElementById('sl').value);
+  document.getElementById('sl-val').textContent=n;
+  var brut=n*PRICE;
+  var clin=n*CLINIQUE;
+  var frais=fraisLLC(n);
+  var raw=rawNet(n);
+  var pnet=Math.max(0,raw);
+  var isLoss=raw<0;
+
+  document.getElementById('r-brut').textContent='$'+Math.round(brut).toLocaleString('fr-FR');
+  document.getElementById('r-clin').textContent='-$'+Math.round(clin).toLocaleString('fr-FR');
+  document.getElementById('r-frais').textContent='~ $'+Math.round(frais).toLocaleString('fr-FR');
+
+  var netEl=document.getElementById('r-net');
+  netEl.textContent=isLoss?('-$'+Math.round(Math.abs(raw)).toLocaleString('fr-FR')):('$'+Math.round(raw).toLocaleString('fr-FR'));
+  netEl.style.color=isLoss?'#E24B4A':'#0F6E56';
+
+  var llcEl=document.getElementById('s-llc');
+  llcEl.textContent=isLoss?('-$'+Math.round(Math.abs(raw)).toLocaleString('fr-FR')):('$'+Math.round(raw*0.5).toLocaleString('fr-FR'));
+  llcEl.style.color=isLoss?'#E24B4A':'#1a1a1a';
+
+  document.getElementById('s-pilot').textContent=fmt(Math.round(pnet*0.25));
+  document.getElementById('s-imene').textContent=fmt(Math.round(pnet*0.25));
+  document.getElementById('warn').style.display=isLoss?'block':'none';
+}
+document.getElementById('sl').addEventListener('input',update);
+update();
+
+var months=['M1','M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'];
+var growth=[2,3,4,5,6,7,8,10,12,14,17,20];
+new Chart(document.getElementById('chart'),{
+  type:'bar',
+  data:{
+    labels:months,
+    datasets:[
+      {label:'E-NOVATION LLC 50%',data:growth.map(function(n){return Math.round(Math.max(0,rawNet(n))*0.5);}),backgroundColor:'#9FE1CB'},
+      {label:'Pilote 25%',data:growth.map(function(n){return Math.round(Math.max(0,rawNet(n))*0.25);}),backgroundColor:'#AFA9EC'},
+      {label:'Imene 25%',data:growth.map(function(n){return Math.round(Math.max(0,rawNet(n))*0.25);}),backgroundColor:'#1D9E75'}
+    ]
+  },
+  options:{
+    responsive:true,maintainAspectRatio:false,
+    plugins:{legend:{display:false}},
+    scales:{
+      x:{stacked:true,ticks:{font:{size:11},maxRotation:0}},
+      y:{stacked:true,ticks:{callback:function(v){return '$'+v.toLocaleString();},font:{size:11}}}
+    }
+  }
+});
+</script>
+</body>
+</html>
